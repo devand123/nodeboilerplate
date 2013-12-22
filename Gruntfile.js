@@ -25,21 +25,21 @@ module.exports = function (grunt) {
     grunt.initConfig({
         yeoman: yeomanConfig,
        	express: {
-					options: {
-						port: process.env.PORT || 9000
-					},
-					dev: {
-						options: {
-							script: 'server.js'
-						}
-					},
-					prod: {
-						options: {
-							script: 'server.js'
-						}
-					}
-				},
-			 	watch: {
+		options: {
+			port: process.env.PORT || 9000
+		},
+		dev: {
+			options: {
+				script: 'server.js'
+			}
+		},
+		prod: {
+			options: {
+				script: 'server.js'
+			}
+		}
+	},
+	watch: {
             options: {
                 nospawn: true
             },
@@ -55,21 +55,21 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
-						express: {
-							files: [
-								'<%= yeoman.app %>/{,*//*}*.html',
-								'{.tmp,<%= yeoman.app %>}/styles/{,*//*}*.css',
-								'{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
-								'<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
-								'server.js',
-								'server/{,*//*}*.{js,json}'
-							],
-							tasks: ['express:dev'],
-							options: {
-								livereload: true,
-								nospawn: true // allow express to reload
-							}
-						}
+	    express: {
+		files: [
+			'<%= yeoman.app %>/{,*//*}*.html',
+			'{.tmp,<%= yeoman.app %>}/styles/{,*//*}*.css',
+			'{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
+			'<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
+			'server.js',
+			'server/{,*//*}*.{js,json}'
+		],
+		tasks: ['express:dev'],
+		options: {
+			livereload: true,
+			nospawn: true // allow express to reload
+		}
+	    }
         },
         connect: {
             options: {
@@ -296,16 +296,16 @@ module.exports = function (grunt) {
                         'styles/fonts/*'
                     ]
                 }, {
-										expand: true,
-										dot: true,
-										cwd: '',
-										dest: '<%= yeoman.dist %>',
-										src: [
-											'Procfile', //heroku
-											'server.js',
-											'package.json'
-										]
-								}, {
+			expand: true,
+			dot: true,
+			cwd: '',
+			dest: '<%= yeoman.dist %>',
+			src: [
+				'Procfile', //heroku
+				'server.js',
+				'package.json'
+			]
+		}, {
                     expand: true,
                     cwd: '.tmp/images',
                     dest: '<%= yeoman.dist %>/images',
@@ -348,12 +348,12 @@ module.exports = function (grunt) {
         }
 
         grunt.task.run([
-            'clean:server',
-            'concurrent:server',
-           	'express:dev',
-					 	'connect:livereload',
-            'open',
-            'watch'
+	    'clean:server',
+	    'concurrent:server',
+	    'express:dev',
+	    'connect:livereload',
+	    'open',
+	    'watch'
         ]);
     });
 
